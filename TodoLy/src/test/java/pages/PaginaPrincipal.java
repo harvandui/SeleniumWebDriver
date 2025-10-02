@@ -2,11 +2,11 @@ package pages;
 
 public class PaginaPrincipal extends BasePage {
 
-    private String url = "asdas";
-    private String locatorUsuario = "asdasd";
-    private String locatorPassword = "asdasd";
-    private String locatorLogin = "asdasd";
-    private String locatorBotonLogin = "asdasd";
+    private String url = "https://todo.ly/";
+    private String locatorLogin = "//img[@src='/Images/design/pagelogin.png']";
+    private String locatorUsuario = "//input[@id='ctl00_MainContent_LoginControl1_TextBoxEmail']";
+    private String locatorPassword = "//input[@id='ctl00_MainContent_LoginControl1_TextBoxPassword']";
+    private String locatorBotonLogin = "//input[@id='ctl00_MainContent_LoginControl1_ButtonLogin']";
 
 
     public void abrirPagina() {

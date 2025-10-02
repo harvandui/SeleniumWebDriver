@@ -38,6 +38,9 @@ public class BasePage {
         Find(locator).sendKeys(text);
     }
 
+    public static void closeBrower(){
+        driver.quit();
+    }
 
 
 }

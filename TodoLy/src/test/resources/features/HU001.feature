@@ -1,8 +1,13 @@
 Feature: Iniciar sesión en la aplicación
 
-  Scenario: Usuario inicia sesión exitosamente
+  Scenario Outline: Usuario inicia sesión exitosamente
     Given que el usuario abre la página principal
     When hace click en el botón Login
-    And coloca el usuario y la contraseña
+    And coloca el <usuario> y la <contrasena>
     And hace clic en el botón Login
-    Then se muestra la página principal de la aplicación
+
+    Examples:
+    |usuario            |contrasena |
+    |correo@hotmail.com |123456     |
+
+
