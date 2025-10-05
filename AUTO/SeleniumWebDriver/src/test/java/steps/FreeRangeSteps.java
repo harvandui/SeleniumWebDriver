@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 import pages.PaginaCursos;
 import pages.PaginaIntroTesting;
 import pages.PaginaPrincipal;
@@ -18,6 +19,8 @@ public class FreeRangeSteps {
     PaginaCursos cursosPage = new PaginaCursos();
     PaginaIntroTesting introTest = new PaginaIntroTesting();
     PaginaRegistro registro = new PaginaRegistro();
+
+    SoftAssert soft = new SoftAssert();
 
     @Given("I navigate to www.freerangetesters.com")
     public void iNavigateToFRT() {
@@ -48,4 +51,30 @@ public class FreeRangeSteps {
                 "Academia: $176 / año • 11 productos", "Free: Gratis • 1 producto");
         Assert.assertEquals(listaEsperada, lista);
     }
+
+    public void assertions() {
+
+        String palabraEsperada = "hola mundo";
+        String palabraEncontrada = "hola mundo 2";
+
+        Assert.assertEquals(palabraEncontrada, palabraEsperada);
+
+        Assert.assertNotEquals(palabraEncontrada, palabraEsperada);
+
+        Assert.assertTrue(palabraEncontrada.contains(palabraEsperada));
+
+        Assert.assertFalse(palabraEncontrada.contains(palabraEsperada));
+
+        //ahora con short assertions
+
+        soft.assertEquals(palabraEsperada, palabraEncontrada);
+        soft.assertNotEquals(palabraEncontrada, palabraEsperada);
+
+        soft.assertTrue(palabraEncontrada.contains(palabraEsperada));
+        soft.assertFalse(palabraEncontrada.contains(palabraEsperada));
+
+        soft.assertAll();
+
+    }
+
 }
